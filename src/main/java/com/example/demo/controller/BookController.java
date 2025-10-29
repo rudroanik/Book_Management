@@ -6,9 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,17 +32,17 @@ public class BookController {
 
     @GetMapping("/author/{authorName}")
     public ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable String authorName) {
-        return ResponseEntity.ok();
+        return ResponseEntity.ok(service.findBooksByAuthorName(authorName));
     }
 
     @GetMapping("/genre/{genre}")
     public ResponseEntity<List<Book>> getBooksByGenre(@PathVariable String genre) {
-        return ResponseEntity.ok();
+        return ResponseEntity.ok(service.findBookByGenre(genre));
     }
 
     @GetMapping("/publication/{publication}")
     public ResponseEntity<List<Book>> getBooksByPublication(@PathVariable String publication) {
-        return ResponseEntity.ok();
+        return ResponseEntity.ok(service.findBooksByPublication(publication));
     }
 
     @PutMapping("/{id}")
@@ -52,8 +50,9 @@ public class BookController {
         return ResponseEntity.ok(service.updateBook(id, book));
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBookById(@PathVariable Long id) {
+        service.deleteBookById(id);
         return ResponseEntity.ok("deleted");
     }
 
