@@ -16,8 +16,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b " +
             "WHERE b.title LIKE %:keyword% " +
             "OR b.author LIKE %:keyword% " +
-            "OR CAST(b.availableCopies AS string) LIKE %:keyword% " +
-            "OR CAST(b.publicationYear AS string) LIKE %:keyword% " +
+            "OR b.availableCopies LIKE %:keyword% " +
+            "OR b.publicationYear LIKE %:keyword% " +
             "OR b.publication LIKE %:keyword%")
     List<Book> findBookByGenre(@Param("keyword") String Keyword);
 
