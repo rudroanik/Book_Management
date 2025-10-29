@@ -15,6 +15,6 @@ public class Book {
     private String title;
     private String author;
     private String publication;
-    private String publicationYear;
-    private String availableCopies;
+    private Integer publicationYear;
+    private Integer availableCopies;
 }
