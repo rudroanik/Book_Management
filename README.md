@@ -1,27 +1,29 @@
-Title: Book Library Management System (REST API)
-Problem Overview: 
+# **Title: Book Library Management System (REST API)**
+**Problem Overview:**
 
 Build a RESTful API for managing a library's book collection using Spring Boot, JPA, and H2 database. This system will allow librarians to perform CRUD operations on books and implement custom search functionalities.
 
-Task:
+**Task:**
 
 Create a Java Spring Boot application that provides RESTful endpoints for managing books in a library system.
 
-Entity Structure(Book):
+**Entity Structure(Book):**
 
 Id (Long) Primary key, auto-generated
 
-Title
+Title(String)
 
-Author 
+Author (String)
 
-Publication
+Publication(String)
 
-publicationYear
+Genre(String)
 
-availableCopies
+publicationYear(Integer)
 
-Basic: 
+availableCopies(Integer)
+
+**End Points:** 
 
 1. POST /api/books - Add a new book to the library
 
