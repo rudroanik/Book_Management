@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,6 +32,7 @@ public class BookService {
         existingBook.setId(existingBook.getId());
         existingBook.setTitle(book.getTitle());
         existingBook.setAuthor(book.getAuthor());
+        existingBook.setGenre(book.getGenre());
         existingBook.setPublication(book.getPublication());
         existingBook.setPublicationYear(book.getPublicationYear());
         existingBook.setAvailableCopies(book.getAvailableCopies());
@@ -50,7 +50,7 @@ public class BookService {
         return bookRepository.findByPublication(publication);
     }
     public List<Book> findBookByGenre(String genre) {
-        return bookRepository.findBookByGenre(genre);
+        return bookRepository.findByGenre(genre);
     }
 
 }
